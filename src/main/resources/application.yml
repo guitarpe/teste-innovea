@@ -1,0 +1,34 @@
+#servidor
+server:
+  host: localhost
+  port: 8089
+
+aplicacao:
+  versao: 1.1
+
+#Feign
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 60000
+        readTimeout: 60000
+  httpclient:
+    disable-ssl-validation: false
+    enabled: false
+  okhttp:
+    enabled: true
+
+#Configuração
+newapi:
+  api-key: 54d6fd844bd547cdb37c07ec79f5e1d1
+  endpoint: https://newsapi.org/v2/everything?q=tesla&from=2022-12-05&sortBy=publishedAt&apiKey=${newapi.api-key}/
+
+#LOGGING
+logging:
+  level:
+    root: INFO
+    com.sample.feign.demofeigncustomconfig: INFO
+    com.innovea: INFO
+    org.springframework.web.client: INFO
+    org.springframework.security.oauth2: INFO
